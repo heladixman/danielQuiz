@@ -7,12 +7,12 @@ $(document).ready(function(){
       $('#ModalDeleteKendaraan').modal('show');
     });
 
-    // $('.hapusMhs').on('click', function(){
-    //   const id = $(this).data('id');
-    //   console.log(id)
-    //   $('.idMahasiswa').val(id);
-    //   $('#ModalDeleteMahasiswa').modal('show');
-    // });
+    $('.hapusParkir').on('click', function(){
+      const Pid = $(this).data('id');
+      console.log(Pid)
+      $('.idParkir').val(Pid);
+      $('#ModalDeleteParkir').modal('show');
+    });
 
     // edit without set editModel
     $('.updateKendaraan').on('click', function(){
@@ -23,4 +23,15 @@ $(document).ready(function(){
       $('#kendaraanName').val(Kendaraan);
       $('#ModalUpdateKendaraan').modal('show');
     });
+
+    $('.updateParkir').on('click', function(){
+      var Bid = $(this).data('id')
+      var tipeK = $(this).data('kendaraan')
+      var platNumber = $(this).data('plat')
+      console.log(tipeK);
+      $('.idKendaraan').val(Bid);
+      $('#platNumber').val(platNumber);
+      $('#ModalUpdateParkir').modal('show');
+    });
+
   });

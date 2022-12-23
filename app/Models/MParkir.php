@@ -6,6 +6,11 @@ use CodeIgniter\Model;
 class MParkir extends Model{
     protected $table = "parkir";
 
+    public function getKendaraan(){
+        $builder = $this->db->table('kendaraan');
+        return $builder->get();
+    }
+
     public function getParkir($id = false){
         if ($id === false){
             $builder = $this->table('parkir')->select('*');

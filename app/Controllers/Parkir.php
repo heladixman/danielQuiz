@@ -15,6 +15,7 @@ class Parkir extends BaseController
         $model = new MParkir();
         $data = [
             'parkir' => $model->getParkir()->getResult(),
+            'kendaraan' => $model->getKendaraan()->getResult(),
             'title' => 'Parkir | Quiz Daniel',
             'content' => 'pages/parking',
             'breadcrumbs' => 'List Parkir'
@@ -27,33 +28,37 @@ class Parkir extends BaseController
 
         //save data
         $data = [
-            'namaKendaraan' => $this->request->getPost('namaKendaraan')
+            'typeKendaraan' => $this->request->getPost('tipeKendaraan'),
+            'platKendaraan' => $this->request->getPost('platKendaraan'),
         ];
 
-        $saveNewKendaraan = $this->kendaraan->newKendaraan($data);
+        $saveNewParkir = $this->parkir->newParkir($data);
 
-        if($saveNewKendaraan){
+        if($saveNewParkir){
             session()->setFlashData('success', 'Data berhasil dimasukkan');
-            return redirect()->to(base_url(). '/kendaraan');
+            return redirect()->to(base_url(). '/parkir');
         }else{
             session()->setFlashData('warning', 'Data gagal dimasukkan');
-            return redirect()->to(base_url(). '/kendaraan');
+            return redirect()->to(base_url(). '/parkir');
         }
     }
 
     public function updateParkir(){
         $model = new MParkir();
-        $id = $this->request->getPost('idKendaraan');
-        $data = array('namaKendaraan' => $this->request->getPost('kendaraanName'));
+        $id = $this->request->getPost('platNumber');
+        $data = array(
+            'typeKendaraan' => $this->request->getPost('idKendaraan'),
+            'platKendaraan' => $this->request->getPost('platNumber'),
+        );
 
-        $model->updateKendaraan($data, $id);
-        return redirect()->to(base_url(). '/kendaraan');
+        $model->updateParkir($data, $id);
+        return redirect()->to(base_url(). '/parkir');
     }
 
     public function deleteParkir(){
         $model = new MParkir();
-        $id = $this->request->getPost('idKendaraan');
-        $model->deleteKendaraan($id);
-        return redirect()->to(base_url(). '/kendaraan');
+        $id = $this->request->getPost('idParkir');
+        $model->deleteParkir($id);
+        return redirect()->to(base_url(). '/parkir');
     }
 }

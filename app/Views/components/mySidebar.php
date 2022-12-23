@@ -4,7 +4,7 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url()?>">
+    <a class="nav-link collapsed" href="<?php echo base_url()?>">
       <i class="bi bi-grid"></i>
       <span>Dashboard</span>
     </a>

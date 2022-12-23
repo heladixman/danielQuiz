@@ -20,6 +20,7 @@
 
   <!-- Default Main JS File -->
   <script src="assets/js/function.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 

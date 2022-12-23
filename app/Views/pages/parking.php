@@ -39,10 +39,10 @@
                         <td><?= $data->waktuMasuk ?></td>
                         <td><?= $data->waktuKeluar ?></td>
                         <td>
-                              <button type="button" class='btn btn-icon btn-success updateParkir' id="editJurusan" data-id="<?= $data->idKendaraan?>" data-name="<?= $data->namaKendaraan?>">
+                              <button type="button" class='btn btn-icon btn-success updateParkir' id="editJurusan" data-kendaraan="<?= $data->idKendaraan?>" data-id="<?= $data->idParkir?>" data-plat="<?= $data->platKendaraan?>">
                                 <i class="bx bx-edit-alt"></i>
                               </button>
-                              <button type="button" class="btn btn-icon btn-outline-danger hapusParkir" data-id="<?= $data->idKendaraan?>">
+                              <button type="button" class="btn btn-icon btn-outline-danger hapusParkir" data-id="<?= $data->idParkir?>">
                                 <i class="bx bx-trash"></i>
                               </button>
                         </td>                             
